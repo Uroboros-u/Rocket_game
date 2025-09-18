@@ -12,7 +12,7 @@ class StartGame:
         self.button_rect = pygame.Rect(400 // 2 - 100, 700 // 2 - 20, 200, 40)
 
 
-        self.image = pygame.image.load('images/start_screen.png').convert_alpha()
+        self.image = pygame.image.load('assets/images/start_screen.png').convert_alpha()
         self.rect_img = self.image.get_rect()
 
         self.rect_img.center = self.screen_rect.center
