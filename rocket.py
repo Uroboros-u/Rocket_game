@@ -1,28 +1,29 @@
 import pygame, random, sys
 
 from ship import Ship
+from states import GameState
 from asteroid import Asteroid
 from stars import Stars
 from gasoline import Gasoline
 from score import Score
 from game_over_screen import GameOver
 from fuel_indicator import FuelIndicator
-from start_game_screen import StartGame
+from menu_screen import StartGame
 
 class Rocket:
     def __init__(self):
         pygame.init()
         # Винести в Music module
         pygame.mixer.init()
-        pygame.mixer.music.load('space-theme-loop-ready.wav')
+        pygame.mixer.music.load('assets/sounds/space-theme-loop-ready.wav')
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
 
         self.screen = pygame.display.set_mode((400, 700), pygame.SCALED, vsync=True)
         self.running = True
         self.clock = pygame.time.Clock()
-        self.state = 'MENU'
-        self.asteroids_type = ['images/braun_a_big.bmp', 'images/gray_a_big.bmp', 'images/braun_a_small.bmp', 'images/gray_a_small.bmp']
+        self.state = GameState.MENU
+        self.asteroids_type = ['images/braun_big.bmp', 'images/gray_big.bmp', 'images/braun_small.bmp', 'images/gray_small.bmp']
         self.game_over = GameOver(self.screen)
         self.start_game_screen = StartGame(self.screen)
 
@@ -36,9 +37,26 @@ class Rocket:
         self._build_world()
 
 
+    def go_menu(self):
+        self.state = GameState.MENU
+        pygame.time.set_timer(self.spawn_event, 0)
+        pygame.time.set_timer(self.fuel_event, 0)
+        self._build_world()
+        pygame.time.set_timer(self.spawn_event, 1000)
+        pygame.time.set_timer(self.fuel_event, 10000)
+
+
+    def go_game(self):
+        self.state = GameState.GAME
+
+
+    def go_game_over(self):
+        self.state = GameState.GAME_OVER
+
+
+
     def _build_world(self):
         self.gasoline_add_list = [1000, 5000, 10000, 20000, 40000, 70000, 100000, 135000, 180000, 250000]
-
         self.ship = Ship(self)
         self.fuel_bar = FuelIndicator(self)
         self.ship_group = pygame.sprite.GroupSingle(self.ship)
@@ -51,12 +69,7 @@ class Rocket:
         self.score = Score(self)
 
     def reset_game(self):
-        pygame.time.set_timer(self.spawn_event, 0)
-        pygame.time.set_timer(self.fuel_event, 0)
-        self._build_world()
-        pygame.time.set_timer(self.spawn_event, 1000)
-        pygame.time.set_timer(self.fuel_event, 10000)
-        self.state = "MENU"
+        self.go_menu()
 
 
     def run_game(self):

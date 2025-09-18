@@ -26,11 +26,6 @@ class GameOver:
         self.score_rect = None
 
 
-        self.enter_time = pygame.time.get_ticks()
-
-    def on_enter(self):
-        self.enter_time = pygame.time.get_ticks()
-
     def set_score(self, score: int):
         if score != self._last_score:
             self._last_score = score
@@ -43,8 +38,4 @@ class GameOver:
         self.screen.blit(self.title_surf, self.title_rect)
         if self.score_surf:
             self.screen.blit(self.score_surf, self.score_rect)
-
-
-        elapsed = pygame.time.get_ticks() - self.enter_time
-        if elapsed > 400 and (elapsed // 350) % 2 == 0:
             self.screen.blit(self.hint_surf, self.hint_rect)
