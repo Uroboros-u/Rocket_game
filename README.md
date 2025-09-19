@@ -36,7 +36,6 @@ Your mission: **score as many points as possible** by dodging asteroids and coll
 ## ⚙️ Requirements
 - Python 3.10+  
 - Install dependencies from `requirements.txt`:
-- ```bash
 - pip install -r requirements.txt
 
 ---
