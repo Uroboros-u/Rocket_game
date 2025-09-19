@@ -36,26 +36,27 @@ Your mission: **score as many points as possible** by dodging asteroids and coll
 ## ⚙️ Requirements
 - Python 3.10+  
 - Install dependencies from `requirements.txt`:
-
-```bash
-pip install -r requirements.txt
+- ```bash
+- pip install -r requirements.txt
 
 ---
 
 ## ▶️ How to Run
-Clone the repository and run:
-git clone https://github.com/Uroboros-u/Rocket_game.git
-cd Rocket_game
-python main.py
+
+- Clone the repository and run:
+- git clone https://github.com/Uroboros-u/Rocket_game.git
+- cd Rocket_game
+- python main.py
 
 ---
 
 ## 🧾 License
-Code: MIT License
-Assets: Generated with ChatGPT
+- Code: MIT License
+- Assets: Generated with ChatGPT
 
 ---
 
 ## 👤 Author
-Uroboros-u
+
+- Uroboros-u
 
