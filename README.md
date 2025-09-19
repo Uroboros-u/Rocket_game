@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 ---
 
-▶️ How to Run
+## ▶️ How to Run
 Clone the repository and run:
 git clone https://github.com/Uroboros-u/Rocket_game.git
 cd Rocket_game
@@ -50,12 +50,12 @@ python main.py
 
 ---
 
-🧾 License
+## 🧾 License
 Code: MIT License
 Assets: Generated with ChatGPT
 
 ---
 
-👤 Author
+## 👤 Author
 Uroboros-u
 
